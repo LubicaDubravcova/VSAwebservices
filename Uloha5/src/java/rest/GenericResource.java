@@ -84,7 +84,7 @@ public class GenericResource {
     @Consumes(MediaType.TEXT_PLAIN)
     public void putJedlo(@PathParam("den") String key,@PathParam("index") int index,String content) {
         if(index>0 && menu.get(key).get(index)!=null )
-            menu.get(key).put(index, content);
+            menu.get(key).put(index,content);
     }
     
     @DELETE
