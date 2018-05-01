@@ -19,10 +19,10 @@ public class JavaUloha5 {
     public static void main(String[] args) {
         NewJerseyClient client= new NewJerseyClient();
         //System.out.println(client.getPocet("Str"));
-        //client.postJedlo("knedla", "Pon");
+        client.postJedlo("knedla", "Pon");
         System.out.println(client.getPocet("Pon"));
         System.out.println(client.getJedlo("Pon", "1"));
-        client.putJedlo("Pon","1","orechy");
+        client.putJedlo("zmrzlina","Pon","1");
         //client.deleteJedlo("Pon", "1");
         System.out.println(client.getPocet("Pon"));
         System.out.println(client.getJedlo("Pon", "1"));
