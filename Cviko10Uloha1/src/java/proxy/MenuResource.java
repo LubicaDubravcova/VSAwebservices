@@ -35,13 +35,13 @@ public class MenuResource {
     @Context
     private UriInfo context;
     //private Map<Integer,Jedlo> menu;
-    private TreeMap<Integer,Jedlo> menu;
+    private Map<Integer,Jedlo> menu;
     /**
      * Creates a new instance of MenuResource
      */
     public MenuResource() {
-        //menu = new HashMap<>();
-        menu = new TreeMap<>();
+        menu = new HashMap<>();
+        //menu = new TreeMap<>();
         menu.put(1, new Jedlo("halusky",3.2));
         menu.put(2, new Jedlo("palacinky",5.0));
         menu.put(3, new Jedlo("langos",1.2));
@@ -74,19 +74,21 @@ public class MenuResource {
             menu.remove(index);
     }
     
+    
     @GET
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.TEXT_PLAIN)
     public String getPonuka() {
         String all="";
-        for(Entry<Integer,Jedlo> entry:menu.entrySet())
+        for(Map.Entry entry:menu.entrySet())
             all=all+entry.getValue()+"";
         return all;
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML)
-    public int postJedlo(Jedlo content){
-        int index=1;
+    @Produces(MediaType.TEXT_PLAIN)
+    public Integer postJedlo(Jedlo content){
+        Integer index=1;
     
         while(menu.containsKey(index))
         {
