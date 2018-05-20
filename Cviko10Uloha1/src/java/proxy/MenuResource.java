@@ -86,7 +86,7 @@ public class MenuResource {
     @POST
     @Consumes(MediaType.APPLICATION_XML)
     public int postJedlo(Jedlo content){
-        int vlozene=0,index=1;
+        int index=1;
     
         while(menu.containsKey(index))
         {
