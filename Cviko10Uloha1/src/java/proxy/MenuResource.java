@@ -63,21 +63,15 @@ public class MenuResource {
     @Path("/{index:[0-9]+}")
     @Consumes(MediaType.APPLICATION_XML)
     public void putPolozka(@PathParam("index") int index, Jedlo content) {
-        for (Map.Entry e: menu.entrySet())
-        {
-            if (index>0 && index==(Integer) e.getKey())
-                menu.put(index,content);
-        }
+        if(menu.containsKey(index))
+            menu.put(index,content);
     }
     
     @DELETE
     @Path("/{index:[0-9]+}")
     public void deletePolozka(@PathParam("index") int index) {
-        for (Map.Entry e: menu.entrySet())
-        {
-            if (index>0 && index==(Integer) e.getKey())
-                menu.remove(index);
-        }
+        if(menu.containsKey(index))
+            menu.remove(index);
     }
     
     @GET
@@ -92,8 +86,18 @@ public class MenuResource {
     @POST
     @Consumes(MediaType.APPLICATION_XML)
     public int postJedlo(Jedlo content){
-        int index=menu.lastKey();
-        menu.put(index+1, content);
-        return index;
+        int vlozene=0,index=1;
+    
+        for (Map.Entry e: menu.entrySet())
+        {
+            
+            if (index!=(Integer) e.getKey())
+            {
+                menu.put(index, content);
+                vlozene=index;
+            }
+            index++;
+        }
+        return vlozene;
     }
 }
