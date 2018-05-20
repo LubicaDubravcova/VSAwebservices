@@ -36,6 +36,7 @@ public class MenuResource {
     private UriInfo context;
     //private Map<Integer,Jedlo> menu;
     private Map<Integer,Jedlo> menu;
+    Jedlo jedielko;
     /**
      * Creates a new instance of MenuResource
      */
@@ -79,8 +80,10 @@ public class MenuResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getPonuka() {
         String all="";
-        for(Map.Entry entry:menu.entrySet())
-            all=all+entry.getValue()+"";
+        for(Map.Entry entry:menu.entrySet()){
+            Jedlo j=(Jedlo) entry.getValue();
+            all=all+j.getNazov()+" "+j.getCena()+"\n";
+        }
         return all;
     }
     
