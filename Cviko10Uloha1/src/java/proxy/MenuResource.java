@@ -52,9 +52,9 @@ public class MenuResource {
     @Path("/{index:[0-9]+}")
     @Produces(MediaType.APPLICATION_XML)
     public Jedlo getPolozka(@PathParam("index") int index) {
-        if (index>0 && index<=menu.size())
-            return menu.get(index);
-        else
+        if(menu.containsKey(index))
+            return menu.get(index);     
+        else 
             return null;
     }
 
@@ -63,17 +63,21 @@ public class MenuResource {
     @Path("/{index:[0-9]+}")
     @Consumes(MediaType.APPLICATION_XML)
     public void putPolozka(@PathParam("index") int index, Jedlo content) {
-        //ak polozka neexistuje, nepridaju, neurobi nic
-        //opravit, blba implementaci ak budem mat indexy 1 a 3, lebo pocet bude iba 2
-        if (index>0 && index<=menu.size())
-            menu.put(index,content);
+        for (Map.Entry e: menu.entrySet())
+        {
+            if (index>0 && index==(Integer) e.getKey())
+                menu.put(index,content);
+        }
     }
     
     @DELETE
     @Path("/{index:[0-9]+}")
     public void deletePolozka(@PathParam("index") int index) {
-        if (index>0 && index<=menu.size())
-            menu.remove(index);
+        for (Map.Entry e: menu.entrySet())
+        {
+            if (index>0 && index==(Integer) e.getKey())
+                menu.remove(index);
+        }
     }
     
     @GET
