@@ -88,16 +88,11 @@ public class MenuResource {
     public int postJedlo(Jedlo content){
         int vlozene=0,index=1;
     
-        for (Map.Entry e: menu.entrySet())
+        while(menu.containsKey(index))
         {
-            
-            if (index!=(Integer) e.getKey())
-            {
-                menu.put(index, content);
-                vlozene=index;
-            }
             index++;
         }
-        return vlozene;
+        menu.put(index, content);
+        return index;
     }
 }
