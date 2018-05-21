@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<adresar xmlns="http://xml.netbeans.org/schema/AdresarSchema">
+    <osoba gen="zena">
+        <bydlisko>Bratislava</bydlisko>
+        <meno>Zuzana Kratochvilova</meno>
+    </osoba>
+    <osoba gen="muz">
+        <bydlisko>Puchov</bydlisko>
+        <meno>Igor Vdovec</meno>
+    </osoba>
+    <osoba gen="muz">
+        <bydlisko>Puchov</bydlisko>
+        <meno>Igor Vdovec</meno>
+    </osoba>
+</adresar>
