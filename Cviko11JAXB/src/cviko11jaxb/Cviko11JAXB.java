@@ -28,7 +28,7 @@ public class Cviko11JAXB {
     public static void main(String[] args) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(Adresar.class);
         Unmarshaller um = context.createUnmarshaller();
-       // Adresar adresar = (Adresar) um.unmarshal(new File("C:\\Users\\Dell\\Desktop\\adresar.xml"));
+       // Adresar adresar = (Adresar) um.unmarshal(new File("adresar.xml"));
        Adresar adresar = (Adresar) um.unmarshal(new File("test.xml"));
         
         for (Osoba o:adresar.getAdresar())
