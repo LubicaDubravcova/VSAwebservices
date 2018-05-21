@@ -20,7 +20,7 @@ public class Osoba {
     private String bydlisko;
     private String email;
 
-    @XmlAttribute(name="gen", namespace = "http://xml.netbeans.org/schema/AdresarSchema")
+    @XmlAttribute(name="gen")
     public String getGen() {
         return gen;
     }
